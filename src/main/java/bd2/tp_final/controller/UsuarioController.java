@@ -11,9 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import org.springframework.http.HttpStatus;
-
 import bd2.tp_final.dto.Apuesta;
-import bd2.tp_final.dto.Equipo;
 import bd2.tp_final.dto.Usuario;
 import bd2.tp_final.http.ProdeResponse;
 import bd2.tp_final.http.UsuarioRequest;

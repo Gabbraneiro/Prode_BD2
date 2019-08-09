@@ -55,4 +55,11 @@ public class ApuestaController extends ProdeController{
 		Iterable<Apuesta> apuestas =  apuestaService.obtenerApuestas();
 		return new ProdeResponse(apuestas, HttpStatus.ACCEPTED).render();
 	}
+	
+	/* CONSULTA */
+	@RequestMapping(value="/apuesta/contabilizar", method = RequestMethod.GET, produces = "application/json")
+	public ResponseEntity<String> contabilizaApuestas(){
+		Iterable<Apuesta> apuestas =  apuestaService.contabilizarApuestas();
+		return new ProdeResponse(apuestas, HttpStatus.ACCEPTED).render();
+	}
 }
