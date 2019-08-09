@@ -1,9 +1,11 @@
 package bd2.tp_final.controller;
 
 import java.util.Map;
+import java.util.Objects;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -35,5 +37,22 @@ public class ApuestaController extends ProdeController{
 		catch(Exception e) {
 			return new ProdeResponse(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR).render();
 		}		
+	}
+	
+	/* CONSULTA */
+	@RequestMapping(value ="/apuesta/{apuesta}", method = RequestMethod.GET, produces = "application/json")
+	public ResponseEntity<String> obtenerApuesta(@PathVariable("apuesta") Apuesta apuesta) {
+		if(Objects.equals(apuesta, null)) {
+			return new ProdeResponse("Apuesta no encontrado", HttpStatus.NOT_FOUND).render();
+		}
+		return new ProdeResponse(apuesta, HttpStatus.OK).render();
+
+	}
+	
+	/* CONSULTA */
+	@RequestMapping(value="/apuesta", method = RequestMethod.GET, produces = "application/json")
+	public ResponseEntity<String> obtenerApuestas(){
+		Iterable<Apuesta> apuestas =  apuestaService.obtenerApuestas();
+		return new ProdeResponse(apuestas, HttpStatus.ACCEPTED).render();
 	}
 }

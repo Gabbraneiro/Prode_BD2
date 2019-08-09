@@ -18,8 +18,8 @@ public class ApuestaService extends ProdeService{
 	}
 	
 	/* CONSULTA */
-	public Iterable<Apuesta> obtenerApuestas(Integer usuarioId) {
-		return apuestaDAO.findByUsuario(usuarioId);
+	public Iterable<Apuesta> obtenerApuestas(Usuario usuario) {
+		return apuestaDAO.findByUsuario(usuario);
 	}
 	
 	/* ALTA */

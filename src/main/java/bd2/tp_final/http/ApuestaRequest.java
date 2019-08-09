@@ -49,7 +49,7 @@ public class ApuestaRequest implements ProdeRequest{
 			retorno.put("golesLocal", "El campo golesLocal no puede ser nulo");
 			retorno.put("requestValido", false);
 		}
-		if(golesLocal != null && golesLocal < 1) {
+		if(golesLocal != null && golesLocal < 0) {
 			retorno.put("golesLocal", "El campo golesLocal es inválido");
 			retorno.put("requestValido", false);
 		}
@@ -57,7 +57,7 @@ public class ApuestaRequest implements ProdeRequest{
 			retorno.put("golesVisitante", "El campo golesVisitante no puede ser nulo");
 			retorno.put("requestValido", false);
 		}
-		if(golesVisitante != null && golesVisitante < 1) {
+		if(golesVisitante != null && golesVisitante < 0) {
 			retorno.put("golesVisitante", "El campo golesVisitante es inválido");
 			retorno.put("requestValido", false);
 		}
@@ -65,7 +65,7 @@ public class ApuestaRequest implements ProdeRequest{
 			retorno.put("golesVisitante", "El campo golesVisitante no puede ser nulo");
 			retorno.put("requestValido", false);
 		}
-		if(golesVisitante != null && golesVisitante < 1) {
+		if(golesVisitante != null && golesVisitante < 0) {
 			retorno.put("golesVisitante", "El campo golesVisitante es inválido");
 			retorno.put("requestValido", false);
 		}
@@ -84,6 +84,12 @@ public class ApuestaRequest implements ProdeRequest{
 		if(usuario != null && usuario < 1) {
 			retorno.put("usuario", "El campo usuario es inválido");
 			retorno.put("requestValido", false);
+		}
+		if(penalesLocal != null || penalesVisitante != null) {
+			if(golesLocal != golesVisitante) {
+				retorno.put("penales", "Los campo penalesLocal y penalesVisitante deben mandarse solo si es empate");
+				retorno.put("requestValido", false);
+			}
 		}
 		if(penalesLocal != null && penalesVisitante == null) {
 			retorno.put("penalesVisitante", "El campo penalesVisitante es requerido si se setea el campo penalesLocal");
