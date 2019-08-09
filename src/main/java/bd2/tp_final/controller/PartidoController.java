@@ -61,7 +61,7 @@ public class PartidoController extends ProdeController{
 		return new ProdeResponse(partido, HttpStatus.OK).render();
 	}
 	
-	/* MODIFICACIÓN */
+	/* ACTUALIZACIÓN */
 	@RequestMapping(value="/partido/{partido}", method = RequestMethod.PUT, produces = "application/json",headers = "Accept=application/json")
 	public ResponseEntity<String> editarUsuario(@PathVariable("partido") Partido partido, @RequestBody ActualizacionPartidoRequest request) {
 		
