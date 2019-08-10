@@ -62,4 +62,4 @@ Dentro de la carpeta del proyecto se debe ejecutar el siguiente comando.
 **`mvn spring-boot:run`**
 
 Una vez realizado estos pasos, ya se puede probar la api localmente en la url localhost:8080
-La documentación de la API esta en el archivo APIDoc.md
+La documentación de la API esta en el archivo APIDoc.md ubicado en la raiz del repositorio.
