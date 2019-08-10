@@ -13,27 +13,27 @@
 ------------
 
 
-##### 0. Verificaciones previas
+#### 0. Verificaciones previas
 - Variable de entorno de java configurada correctamente. (Agregar al PATH del sistema la carpeta /bin de jav sdk)
 
 ------------
 
 
-##### 1. Descarga del proyecto 
+#### 1. Descarga del proyecto 
 	git clone https://github.com/Gabbraneiro/Prode_BD2.git
 
 ------------
 
 
-##### 2. Gestor de base de datos  (en caso de no usar mysql)
+#### 2. Gestor de base de datos  (en caso de no usar mysql)
 - Agregar al archivo **`Prode_BD2/pom.xml`** la/s dependencia/s correspondiente para el uso del gestor.
 
-##### 3. Base de datos. (Si se decide usar el usario root se pueden ignorar estos pasos)
+#### 3. Base de datos. (Si se decide usar el usario root se pueden ignorar estos pasos)
 1. Definir un usuario con el cual se conectara a la base de datos.
 2. Crear una base de datos.
 3. Darle permisos de INSERT, UPDATE, DELETE y SELECT al usuario definido en 1. sobre la base de datos creada en 2.
 	
-##### 4. Configuración de parámetros del proyecto.
+#### 4. Configuración de parámetros del proyecto.
 Editar los siguientes parametros del archivo "Prode_BD2/src/main/resources/application.properties".
 
 
@@ -51,7 +51,7 @@ spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.{dialectoBD}
 
 
 
-##### 5. Descarga de dependencias 
+#### 5. Descarga de dependencias 
 Dentro de la carpeta del proyecto se debe ejecutar el siguiente comando.
 
 **`mvn install`**
