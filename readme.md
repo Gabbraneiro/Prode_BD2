@@ -56,7 +56,7 @@ Dentro de la carpeta del proyecto se debe ejecutar el siguiente comando.
 
 **`mvn install`**
 
-##### 6. Puesta en marcha del servidor 
+#### 6. Puesta en marcha del servidor 
 Dentro de la carpeta del proyecto se debe ejecutar el siguiente comando.
 
 **`mvn spring-boot:run`**
