@@ -33,19 +33,19 @@
 2. Crear una base de datos.
 3. Darle permisos de INSERT, UPDATE, DELETE y SELECT al usuario definido en 1. sobre la base de datos creada en 2.
 	
-##### 4. Configuración de parámetros del proyecto.
+##### 4. ConfiguraciÃ³n de parÃ¡metros del proyecto.
 Editar los siguientes parametros del archivo "Prode_BD2/src/main/resources/application.properties".
 
 
 ```yaml
-		spring.datasource.url = jdbc:{SGBD}://localhost:3306/{nombreBD}?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+spring.datasource.url = jdbc:{SGBD}://localhost:3306/{nombreBD}?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
 #Se debe reemplazar {SGBD} por el gestor de base de datos que se use, en caso de usar mysql no cambiar.
 #Se debe reemplazar {nombreBD} por el nombre de la base de datos creada en (3.2).
-		spring.datasource.username = {usuario}
-		spring.datasource.password = {contraseña}
+spring.datasource.username = {usuario}
+spring.datasource.password = {contraseÃ±a}
 #Se debe reemplazar {usuario} por el nombre del usuario creado en (3.1).
-#Se debe reemplazar {contraseña} por la contraseña del usuario creado en (3.1).
-		spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.{dialectoBD}
+#Se debe reemplazar {contraseÃ±a} por la contraseÃ±a del usuario creado en (3.1).
+spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.{dialectoBD}
 #Se debe reemplazar {dialectoBD} por el dialecto correspondiente al gestor instalado en (2)
 ```
 
