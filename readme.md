@@ -14,7 +14,7 @@
 
 
 #### 0. Verificaciones previas
-- Variable de entorno de java configurada correctamente. (Agregar al PATH del sistema la carpeta /bin de jav sdk)
+- Variable de entorno de java configurada correctamente. (Agregar al PATH del sistema la carpeta /bin de java sdk)
 
 ------------
 
