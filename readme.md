@@ -28,7 +28,7 @@
 #### 2. Gestor de base de datos  (en caso de no usar mysql)
 - Agregar al archivo **`Prode_BD2/pom.xml`** la/s dependencia/s correspondiente para el uso del gestor.
 
-#### 3. Base de datos. (Si se decide usar el usario root se pueden ignorar estos pasos)
+#### 3. Base de datos
 1. Definir un usuario con el cual se conectara a la base de datos.
 2. Crear una base de datos.
 3. Darle permisos de INSERT, UPDATE, DELETE y SELECT al usuario definido en 1. sobre la base de datos creada en 2.
