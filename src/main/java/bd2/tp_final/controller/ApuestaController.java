@@ -49,6 +49,22 @@ public class ApuestaController extends ProdeController{
 
 	}
 	
+	/* BAJA */
+	@RequestMapping(value ="/apuesta/{apuesta}", method = RequestMethod.DELETE, produces = "application/json")
+	public ResponseEntity<String> eliminarApuesta(@PathVariable("apuesta") Apuesta apuesta) {
+		if(Objects.equals(apuesta, null)) {
+			return new ProdeResponse("Apuesta no encontrado", HttpStatus.NOT_FOUND).render();
+		}
+		try {
+			apuestaService.eliminarApuesta(apuesta);
+			return new ProdeResponse("Se elimino correctamente", HttpStatus.OK).render();
+		}
+		catch(Exception e){
+			return new ProdeResponse(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR).render();
+		}
+
+	}
+	
 	/* CONSULTA */
 	@RequestMapping(value="/apuesta", method = RequestMethod.GET, produces = "application/json")
 	public ResponseEntity<String> obtenerApuestas(){
@@ -56,7 +72,7 @@ public class ApuestaController extends ProdeController{
 		return new ProdeResponse(apuestas, HttpStatus.ACCEPTED).render();
 	}
 	
-	/* CONSULTA */
+
 	@RequestMapping(value="/apuesta/contabilizar", method = RequestMethod.POST, produces = "application/json")
 	public ResponseEntity<String> contabilizaApuestas(){
 		Iterable<Apuesta> apuestas =  apuestaService.contabilizarApuestas();

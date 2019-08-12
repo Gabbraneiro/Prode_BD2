@@ -61,6 +61,11 @@ public class PartidoService extends ProdeService{
 		return partidoDAO.save(partido);
 		
 	}
+	
+	/* BAJA */
+	public void eliminarPartido(Partido partido) {
+		partidoDAO.delete(partido);
+	}
 
 }
 

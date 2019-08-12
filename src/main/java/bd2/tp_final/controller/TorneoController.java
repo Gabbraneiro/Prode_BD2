@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import bd2.tp_final.dto.Partido;
 import bd2.tp_final.dto.Torneo;
 import bd2.tp_final.http.ProdeResponse;
 import bd2.tp_final.http.TorneoRequest;
@@ -67,6 +68,22 @@ public class TorneoController extends ProdeController{
 		}
 		else {
 			return new ProdeResponse("Torneo no encontrado", HttpStatus.NOT_FOUND).render();
+		}
+
+	}
+	
+	/* BAJA */
+	@RequestMapping(value ="/torneo/{torneo}", method = RequestMethod.DELETE, produces = "application/json")
+	public ResponseEntity<String> eliminarTorneo(@PathVariable("torneo") Torneo torneo) {
+		if(Objects.equals(torneo, null)) {
+			return new ProdeResponse("Torneo no encontrado", HttpStatus.NOT_FOUND).render();
+		}
+		try {
+			torneoService.eliminarTorneo(torneo);
+			return new ProdeResponse("Se elimino correctamente", HttpStatus.OK).render();
+		}
+		catch(Exception e){
+			return new ProdeResponse(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR).render();
 		}
 
 	}

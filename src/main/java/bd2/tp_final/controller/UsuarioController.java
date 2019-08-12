@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import org.springframework.http.HttpStatus;
 import bd2.tp_final.dto.Apuesta;
+import bd2.tp_final.dto.Torneo;
 import bd2.tp_final.dto.Usuario;
 import bd2.tp_final.http.ProdeResponse;
 import bd2.tp_final.http.PuntajeResponse;
@@ -53,7 +54,7 @@ public class UsuarioController extends ProdeController{
 		if(Objects.equals(usuario, null)) {
 			return new ProdeResponse("Usuario no encontrado", HttpStatus.NOT_FOUND).render();
 		}
-		return new ProdeResponse("Usuario no encontrado", HttpStatus.NOT_FOUND).render();
+		return new ProdeResponse(usuario, HttpStatus.OK).render();
 
 	}
 	
@@ -95,6 +96,22 @@ public class UsuarioController extends ProdeController{
 		}
 		
 		return new ProdeResponse(puntajes, HttpStatus.ACCEPTED).render();
+	}
+	
+	/* BAJA */
+	@RequestMapping(value ="/usuario/{usuario}", method = RequestMethod.DELETE, produces = "application/json")
+	public ResponseEntity<String> eliminarUsuario(@PathVariable("usuario") Usuario usuario) {
+		if(Objects.equals(usuario, null)) {
+			return new ProdeResponse("Usuario no encontrado", HttpStatus.NOT_FOUND).render();
+		}
+		try {
+			usuarioService.eliminarUsuario(usuario);
+			return new ProdeResponse("Se elimino correctamente", HttpStatus.OK).render();
+		}
+		catch(Exception e){
+			return new ProdeResponse(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR).render();
+		}
+
 	}
 
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import bd2.tp_final.dao.UsuarioDAO;
+import bd2.tp_final.dto.Torneo;
 import bd2.tp_final.dto.Usuario;
 
 @Service
@@ -43,5 +44,9 @@ public class UsuarioService {
 		return usuarioDAO.save(usuario);
 	}
 	
-
+	/* BAJA */
+	public void eliminarUsuario(Usuario usuario) {
+		usuarioDAO.delete(usuario);
+	}
+	
 }

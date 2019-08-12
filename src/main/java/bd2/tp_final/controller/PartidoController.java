@@ -80,4 +80,20 @@ public class PartidoController extends ProdeController{
 
 	}
 	
+	/* BAJA */
+	@RequestMapping(value ="/partido/{partido}", method = RequestMethod.DELETE, produces = "application/json")
+	public ResponseEntity<String> eliminarPartido(@PathVariable("partido") Partido partido) {
+		if(Objects.equals(partido, null)) {
+			return new ProdeResponse("Partido no encontrado", HttpStatus.NOT_FOUND).render();
+		}
+		try {
+			partidoService.eliminarPartido(partido);
+			return new ProdeResponse("Se elimino correctamente", HttpStatus.OK).render();
+		}
+		catch(Exception e){
+			return new ProdeResponse(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR).render();
+		}
+
+	}
+	
 }

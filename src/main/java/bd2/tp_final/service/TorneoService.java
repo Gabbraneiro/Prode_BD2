@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
+import bd2.tp_final.dto.Partido;
 import bd2.tp_final.dto.Torneo;
 
 
@@ -30,5 +31,10 @@ public class TorneoService extends ProdeService {
 	public Torneo editarTorneo(Torneo torneo, String nombre){
 		torneo.setNombre(nombre);
 		return torneoDAO.save(torneo);
+	}
+	
+	/* BAJA */
+	public void eliminarTorneo(Torneo torneo) {
+		torneoDAO.delete(torneo);
 	}
 }

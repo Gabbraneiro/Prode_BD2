@@ -119,4 +119,9 @@ public class ApuestaService extends ProdeService{
 		}
 		return suma;
 	}
+	
+	/* BAJA */
+	public void eliminarApuesta(Apuesta apuesta) {
+		apuestaDAO.delete(apuesta);
+	}
 }

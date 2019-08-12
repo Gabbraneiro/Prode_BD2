@@ -73,4 +73,20 @@ public class EquipoController extends ProdeController{
 
 	}
 	
+	/* BAJA */
+	@RequestMapping(value ="/equipo/{equipo}", method = RequestMethod.DELETE, produces = "application/json")
+	public ResponseEntity<String> eliminarEquipo(@PathVariable("equipo") Equipo equipo) {
+		if(Objects.equals(equipo, null)) {
+			return new ProdeResponse("Equipo no encontrado", HttpStatus.NOT_FOUND).render();
+		}
+		try {
+			equipoService.eliminarEquipo(equipo);
+			return new ProdeResponse("Se elimino correctamente", HttpStatus.OK).render();
+		}
+		catch(Exception e){
+			return new ProdeResponse(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR).render();
+		}
+
+	}
+	
 }
