@@ -1,9 +1,9 @@
 ## Funcionalidad
 | Endpoint | /partido/{partido}  |
 | :------------ | :------------ |
-| **Descripción ** |  Actualiza el resultado del partido con id {partido}|
+| **Descripción** |  Actualiza el resultado del partido con id {partido}|
 | **Protocolo**  |  REST |
-| **Método HTTP **| PUT  |
+| **Método HTTP**| PUT  |
 | **Datos de entrada**  |{golesLocal: int, golesVisitante: int, (opcional)penalesLocal: int, (opcional)penalesVisitante: int}|
 | **Datos de salida**  |{id: int, local: JSON, visitante: JSON, torneo: JSON, fecha: string, golesLocal: int, golesVisitante: int, penalesLocal: int, penalesVisitante: int}|
 | **Codigos de retorno** | 200, 404, 500 |
@@ -11,9 +11,9 @@
 
 | Endpoint | /apuesta/contabilizar  |
 | :------------ | :------------ |
-| **Descripción ** |  Hace el calculo de puntos de las apuestas de partidos terminados|
+| **Descripción** |  Hace el calculo de puntos de las apuestas de partidos terminados|
 | **Protocolo**  |  REST |
-| **Método HTTP **| POST  |
+| **Método HTTP**| POST  |
 | **Datos de entrada**  |{}|
 | **Datos de salida**  | [{id: int, golesLocal: int, golesVisitante: int, penalesLocal: int, penalesVisitante: int, partido: JSON, usuario: JSON, puntosGanados: int}, ...]|
 | **Codigos de retorno** | 200, 404, 500 |
@@ -26,7 +26,7 @@
 | **Método HTTP** | GET  |
 | **Datos de entrada**  | {}|
 | **Datos de salida**  |[{username: string, puntaje: int} ]|
-|** Codigos de retorno** | 201, 400, 500 |
+|**Codigos de retorno** | 201, 400, 500 |
 | **Tipo de retorno**  | JSON  |
 
 ## CRUD
@@ -39,7 +39,7 @@
 | **Método HTTP** | POST  |
 | **Datos de entrada**  | {nombre: string }|
 | **Datos de salida**  |{id: int, nombre: string} |
-|** Codigos de retorno** | 201, 400, 500 |
+|**Codigos de retorno** | 201, 400, 500 |
 | **Tipo de retorno**  | JSON  |
 
 | Endpoint | /torneo  |
@@ -59,7 +59,7 @@
 | **Método HTTP** | GET  |
 | **Datos de entrada**  |{}|
 | **Datos de salida**  |{id: int, nombre: string}|
-|** Codigos de retorno** | 200, 404, 500 |
+|**Codigos de retorno** | 200, 404, 500 |
 | **Tipo de retorno**  | JSON  |
 
 | Endpoint | /torneo/{torneo}  |
@@ -90,7 +90,7 @@
 | **Método HTTP** | POST  |
 | **Datos de entrada**  | {nombre: string }|
 | **Datos de salida**  |{id: int, nombre: string} |
-|** Codigos de retorno** | 201, 400, 500 |
+|**Codigos de retorno** | 201, 400, 500 |
 | **Tipo de retorno**  | JSON  |
 
 | Endpoint | /equipo  |
@@ -110,7 +110,7 @@
 | **Método HTTP** | GET  |
 | **Datos de entrada**  |{}|
 | **Datos de salida**  |{id: int, nombre: string}|
-|** Codigos de retorno** | 200, 404, 500 |
+|**Codigos de retorno** | 200, 404, 500 |
 | **Tipo de retorno**  | JSON  |
 
 | Endpoint | /equipo/{equipo}  |
@@ -141,7 +141,7 @@
 | **Método HTTP** | POST  |
 | **Datos de entrada**  | {username: string, nombre: string, apellido: string }|
 | **Datos de salida**  |{id: int, username: string, nombre: string, apellido: string} |
-|** Codigos de retorno** | 201, 400, 500 |
+|**Codigos de retorno** | 201, 400, 500 |
 | **Tipo de retorno**  | JSON  |
 
 | Endpoint | /usuario  |
@@ -161,7 +161,7 @@
 | **Método HTTP** | GET  |
 | **Datos de entrada**  |{}|
 | **Datos de salida**  |{id: int, username: string, nombre: string, apellido: string},|
-|** Codigos de retorno** | 200, 404, 500 |
+|**Codigos de retorno** | 200, 404, 500 |
 | **Tipo de retorno**  | JSON  |
 
 | Endpoint | /usuario/{usuario}  |
@@ -192,7 +192,7 @@
 | **Método HTTP** | POST  |
 | **Datos de entrada**  | {local: int, visitante: int, torneo: int, fecha: string}  formato de fecha:  "2007-12-03T10:15:30"
 | **Datos de salida**  |{id: int, local: JSON, visitante: JSON, torneo: JSON, fecha: string} |
-|** Codigos de retorno** | 201, 400, 500 |
+|**Codigos de retorno** | 201, 400, 500 |
 | **Tipo de retorno**  | JSON  |
 
 | Endpoint | /partido  |
@@ -212,7 +212,7 @@
 | **Método HTTP** | GET  |
 | **Datos de entrada**  |{}|
 | **Datos de salida**  |{id: int, local: JSON, visitante: JSON, torneo: JSON, fecha: string, golesLocal: int, golesVisitante: int, penalesLocal: int, penalesVisitante: int},|
-|** Codigos de retorno** | 200, 404, 500 |
+|**Codigos de retorno** | 200, 404, 500 |
 | **Tipo de retorno**  | JSON  |
 
 | Endpoint | /partido/{partido}  |
@@ -233,7 +233,7 @@
 | **Método HTTP** | POST  |
 | **Datos de entrada**  | {golesLocal: int, golesVisitante: int, penalesLocal: int, penalesVisitante: int, partido: int, usuario: int}
 | **Datos de salida**  |{id: int, golesLocal: int, golesVisitante: int, penalesLocal: int, penalesVisitante: int, partido: JSON, usuario: JSON} |
-|** Codigos de retorno** | 201, 400, 500 |
+|**Codigos de retorno** | 201, 400, 500 |
 | **Tipo de retorno**  | JSON  |
 
 | Endpoint | /apuesta  |
@@ -253,7 +253,7 @@
 | **Método HTTP** | GET  |
 | **Datos de entrada**  |{}|
 | **Datos de salida**  |{id: int, golesLocal: int, golesVisitante: int, penalesLocal: int, penalesVisitante: int, partido: JSON, usuario: JSON}|
-|** Codigos de retorno** | 200, 404, 500 |
+|**Codigos de retorno** | 200, 404, 500 |
 | **Tipo de retorno**  | JSON  |
 
 | Endpoint | /apuesta/{apuesta}  |
