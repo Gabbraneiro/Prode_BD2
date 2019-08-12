@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import bd2.tp_final.dto.Partido;
 import bd2.tp_final.dto.Torneo;
 import bd2.tp_final.http.ProdeResponse;
 import bd2.tp_final.http.TorneoRequest;
