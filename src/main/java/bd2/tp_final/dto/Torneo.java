@@ -18,6 +18,9 @@ public class Torneo extends DTO {
 //	@OneToMany(mappedBy = "torneo")
 //	List<Partido> partidos;
 	
+//	@OneToMany(mappedBy = "torneo")
+//	List<Puntaje> puntajes;
+	
 	public Torneo() {
 		
 	}

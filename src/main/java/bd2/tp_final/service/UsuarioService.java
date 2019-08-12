@@ -42,4 +42,6 @@ public class UsuarioService {
 		usuario.setApellido(apellido);		
 		return usuarioDAO.save(usuario);
 	}
+	
+
 }
