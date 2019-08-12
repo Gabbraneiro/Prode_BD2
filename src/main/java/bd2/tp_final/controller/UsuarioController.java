@@ -1,5 +1,7 @@
 package bd2.tp_final.controller;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -12,8 +14,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import org.springframework.http.HttpStatus;
 import bd2.tp_final.dto.Apuesta;
+import bd2.tp_final.dto.Torneo;
 import bd2.tp_final.dto.Usuario;
 import bd2.tp_final.http.ProdeResponse;
+import bd2.tp_final.http.PuntajeResponse;
 import bd2.tp_final.http.UsuarioRequest;
 
 @RestController
@@ -80,4 +84,18 @@ public class UsuarioController extends ProdeController{
 		}
 
 	}
+	
+	/* CONSULTA */
+	@RequestMapping(value="/puntajes", method = RequestMethod.GET, produces = "application/json")
+	public ResponseEntity<String> obtenerPuntajes(){
+		List<PuntajeResponse> puntajes = new ArrayList<PuntajeResponse>();
+		Iterable<Usuario> usuarios = usuarioService.obtenerUsuarios();
+		for (Usuario u : usuarios) {
+			Integer puntaje =  apuestaService.obtenerPuntaje(u);
+			puntajes.add(new PuntajeResponse(u.getUsername(), puntaje));
+		}
+		
+		return new ProdeResponse(puntajes, HttpStatus.ACCEPTED).render();
+	}
+
 }

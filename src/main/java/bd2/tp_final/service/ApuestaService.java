@@ -7,6 +7,7 @@ import java.util.NoSuchElementException;
 import org.springframework.stereotype.Service;
 import bd2.tp_final.dto.Apuesta;
 import bd2.tp_final.dto.Partido;
+import bd2.tp_final.dto.Torneo;
 import bd2.tp_final.dto.Usuario;
 
 @Service
@@ -107,5 +108,16 @@ public class ApuestaService extends ProdeService{
 		}
 		apuesta.setPuntosGanados(apuesta.getPuntosGanados() + puntaje);
 		apuestaDAO.save(apuesta);
+	}
+
+	public Integer obtenerPuntaje(Usuario usuario) {
+		Iterable<Apuesta> apuestas = apuestaDAO.findByUsuario(usuario);
+		Integer suma = 0;
+		for (Apuesta apuesta : apuestas) {
+			if(apuesta.getPuntosGanados() != null) {
+				suma += apuesta.getPuntosGanados();
+			}
+		}
+		return suma;
 	}
 }
