@@ -7,7 +7,6 @@ import java.util.NoSuchElementException;
 import org.springframework.stereotype.Service;
 import bd2.tp_final.dto.Apuesta;
 import bd2.tp_final.dto.Partido;
-import bd2.tp_final.dto.Torneo;
 import bd2.tp_final.dto.Usuario;
 
 @Service

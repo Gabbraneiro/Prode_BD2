@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import org.springframework.http.HttpStatus;
 import bd2.tp_final.dto.Apuesta;
-import bd2.tp_final.dto.Torneo;
 import bd2.tp_final.dto.Usuario;
 import bd2.tp_final.http.ProdeResponse;
 import bd2.tp_final.http.PuntajeResponse;
