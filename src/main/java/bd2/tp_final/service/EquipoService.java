@@ -15,18 +15,18 @@ public class EquipoService extends ProdeService{
 	
 	/* CONSULTA */
 	public Iterable<Equipo> obtenerEquipos(){
-		return equipoDAO.findAll();
+		return equipoRepository.findAll();
 	}
 	
 	/* CONSULTA */
 	public Optional<Equipo> obtenerEquipo(Integer equipoId){
-		return equipoDAO.findById(equipoId);
+		return equipoRepository.findById(equipoId);
 	}
 	
 	/* ALTA */
 	public Equipo nuevoEquipo(String nombre) {
 		Equipo equipo = new Equipo(nombre);
-		return equipoDAO.save(equipo);
+		return equipoRepository.save(equipo);
 	}
 		
 	/* MODIFICACIÓN */
@@ -34,11 +34,11 @@ public class EquipoService extends ProdeService{
 		if(nombre != null && !nombre.isEmpty()) {
 			equipo.setNombre(nombre);
 		}
-		return equipoDAO.save(equipo);
+		return equipoRepository.save(equipo);
 	}
 	
 	/* BAJA */
 	public void eliminarEquipo(Equipo equipo) {
-		equipoDAO.delete(equipo);
+		equipoRepository.delete(equipo);
 	}
 }

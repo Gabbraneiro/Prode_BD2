@@ -15,17 +15,17 @@ public class PartidoService extends ProdeService{
 	
 	/* CONSULTA */
 	public Iterable<Partido> obtenerPartidos(){
-		return partidoDAO.findAll();
+		return partidoRepository.findAll();
 	}
 	
 	/* CONSULTA */
 	public Iterable<Partido> obtenerPartidos(Integer torneoId){
-		return partidoDAO.findByTorneo(torneoId);
+		return partidoRepository.findByTorneo(torneoId);
 	}
 	
 	/* CONSULTA */
 	public Optional<Partido> obtenerPartido(Integer partidoId){
-		return partidoDAO.findById(partidoId);
+		return partidoRepository.findById(partidoId);
 	}	
 	
 	/* ALTA */
@@ -35,20 +35,20 @@ public class PartidoService extends ProdeService{
 //		Equipo equipoVisitante = equipoDAO.findById(equipo2).get();
 //		Torneo torneo = torneoDAO.findById(torneo2).get();
 		Partido partido = new Partido(equipoLocal, equipoVisitante, torneo, fecha);
-		return partidoDAO.save(partido);
+		return partidoRepository.save(partido);
 	}
 	
 	/* MODIFICACIÓN */
 	public Partido editarPartido(Partido partido, Integer idEquipoLocal, Integer idEquipoVisitante, Integer idTorneo, String fechaStr) throws NoSuchElementException{
 		LocalDateTime fecha = LocalDateTime.parse(fechaStr);
 		partido.setFecha(fecha);	
-		Equipo equipoLocal = equipoDAO.findById(idEquipoLocal).get();
+		Equipo equipoLocal = equipoRepository.findById(idEquipoLocal).get();
 		partido.setLocal(equipoLocal);
-		Equipo equipoVisitante = equipoDAO.findById(idEquipoVisitante).get();
+		Equipo equipoVisitante = equipoRepository.findById(idEquipoVisitante).get();
 		partido.setVisitante(equipoVisitante);
-		Torneo torneo = torneoDAO.findById(idTorneo).get();
+		Torneo torneo = torneoRepository.findById(idTorneo).get();
 		partido.setTorneo(torneo);		
-		return partidoDAO.save(partido);
+		return partidoRepository.save(partido);
 		
 	}
 	
@@ -58,13 +58,13 @@ public class PartidoService extends ProdeService{
 		partido.setGolesVisitante(golesVisitante);
 		partido.setPenalesLocal(penalesLocal);
 		partido.setPenalesVisitante(penalesVisitante);
-		return partidoDAO.save(partido);
+		return partidoRepository.save(partido);
 		
 	}
 	
 	/* BAJA */
 	public void eliminarPartido(Partido partido) {
-		partidoDAO.delete(partido);
+		partidoRepository.delete(partido);
 	}
 
 }

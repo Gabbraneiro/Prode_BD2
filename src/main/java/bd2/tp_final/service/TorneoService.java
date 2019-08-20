@@ -13,28 +13,28 @@ public class TorneoService extends ProdeService {
 
 	/* CONSULTA */
 	public Iterable<Torneo> obtenerTorneos(){
-		return torneoDAO.findAll();
+		return torneoRepository.findAll();
 	}
 	
 	/* CONSULTA */
 	public Optional<Torneo> obtenerTorneo(Integer torneoId){
-		return torneoDAO.findById(torneoId);
+		return torneoRepository.findById(torneoId);
 	}
 	
 	/* ALTA */
 	public Torneo nuevoTorneo(String nombre) {
 		Torneo torneo = new Torneo(nombre);
-		return torneoDAO.save(torneo);
+		return torneoRepository.save(torneo);
 	}
 	
 	/* MODIFICACIÓN */
 	public Torneo editarTorneo(Torneo torneo, String nombre){
 		torneo.setNombre(nombre);
-		return torneoDAO.save(torneo);
+		return torneoRepository.save(torneo);
 	}
 	
 	/* BAJA */
 	public void eliminarTorneo(Torneo torneo) {
-		torneoDAO.delete(torneo);
+		torneoRepository.delete(torneo);
 	}
 }

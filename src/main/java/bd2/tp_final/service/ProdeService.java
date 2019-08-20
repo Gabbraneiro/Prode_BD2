@@ -11,19 +11,19 @@ import bd2.tp_final.repository.UsuarioRepository;
 public abstract class ProdeService {
 	
 	@Autowired
-	protected ApuestaRepository apuestaDAO;
+	protected ApuestaRepository apuestaRepository;
 	
 	@Autowired
-	protected EquipoRepository equipoDAO;
+	protected EquipoRepository equipoRepository;
 	
 	@Autowired
-	protected PartidoRepository partidoDAO;
+	protected PartidoRepository partidoRepository;
 	
 	@Autowired
-	protected TorneoRepository torneoDAO;
+	protected TorneoRepository torneoRepository;
 	
 	@Autowired
-	protected UsuarioRepository usuarioDAO;
+	protected UsuarioRepository usuarioRepository;
 
 	
 }

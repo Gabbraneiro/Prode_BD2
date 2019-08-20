@@ -17,30 +17,30 @@ public class ApuestaService extends ProdeService{
 	
 	/* CONSULTA */
 	public Iterable<Apuesta> obtenerApuestas(){
-		return apuestaDAO.findAll();
+		return apuestaRepository.findAll();
 	}
 	
 	/* CONSULTA */
 	public Iterable<Apuesta> obtenerApuestas(Usuario usuario) {
-		return apuestaDAO.findByUsuario(usuario);
+		return apuestaRepository.findByUsuario(usuario);
 	}
 	
 	/* ALTA */
 	public Apuesta nuevaApuesta(Partido partido, Usuario usuario, Integer golesLocal, Integer golesVisitante, Integer penalesLocal, Integer penalesVisitante) throws NoSuchElementException{
 		Apuesta apuesta = new Apuesta(golesLocal, golesVisitante, penalesLocal, penalesVisitante, partido, usuario);
-		return apuestaDAO.save(apuesta);
+		return apuestaRepository.save(apuesta);
 		
 	}
 	
 	/* MODIFICACIÓN */
 	public Apuesta editarApuesta(Apuesta apuesta, Integer idUsuario, Integer golesLocal, Integer golesVisitante, Integer penalesLocal, Integer penalesVisitante) throws Exception, NoSuchElementException{
 		
-		Partido partido = partidoDAO.findById(apuesta.getPartido().getId()).get();
+		Partido partido = partidoRepository.findById(apuesta.getPartido().getId()).get();
 		if(partido.getFecha().isBefore(LocalDateTime.now())) {
 			throw new Exception("No se puede editar la apuesta la fecha actual es mayor a la fecha del partido");
 		}
 		if(idUsuario != null) {
-			Usuario usuario = usuarioDAO.findById(idUsuario).get();
+			Usuario usuario = usuarioRepository.findById(idUsuario).get();
 			apuesta.setUsuario(usuario);
 		}
 		if(golesLocal != null) {
@@ -56,14 +56,14 @@ public class ApuestaService extends ProdeService{
 			apuesta.setPenalesVisitante(penalesVisitante);
 		}
 		
-		return apuestaDAO.save(apuesta);
+		return apuestaRepository.save(apuesta);
 		
 	}
 	
 	public Iterable<Apuesta> contabilizarApuestas(){
-		Iterable<Apuesta> apuestas = apuestaDAO.findAll();
+		Iterable<Apuesta> apuestas = apuestaRepository.findAll();
 		for (Apuesta apuesta : apuestas) {
-			Partido partido = partidoDAO.findById(apuesta.getPartido().getId()).get();
+			Partido partido = partidoRepository.findById(apuesta.getPartido().getId()).get();
 			if(partido.getFecha().isBefore(LocalDateTime.now())) { //Si ya paso la fecha del partido
 				if(partido.getGolesLocal() != null && partido.getGolesVisitante() !=null) { //Si estan registrados los goles de ambos equipos
 					this.calcularPuntajeGoles(apuesta);
@@ -75,7 +75,7 @@ public class ApuestaService extends ProdeService{
 				}
 			}
 		}
-		return apuestaDAO.findAll();
+		return apuestaRepository.findAll();
 	}
 	public void calcularPuntajeGoles(Apuesta apuesta) {
 		Boolean aciertoPleno = apuesta.getGolesLocal() == apuesta.getPartido().getGolesLocal() && apuesta.getGolesVisitante() == apuesta.getPartido().getGolesVisitante();
@@ -90,7 +90,7 @@ public class ApuestaService extends ProdeService{
 			puntaje+= ACIERTO;
 		}
 		apuesta.setPuntosGanados(puntaje);
-		apuestaDAO.save(apuesta);
+		apuestaRepository.save(apuesta);
 	}
 	
 	public void calcularPuntajePenales(Apuesta apuesta) {
@@ -106,11 +106,11 @@ public class ApuestaService extends ProdeService{
 			puntaje+= ACIERTO;
 		}
 		apuesta.setPuntosGanados(apuesta.getPuntosGanados() + puntaje);
-		apuestaDAO.save(apuesta);
+		apuestaRepository.save(apuesta);
 	}
 
 	public Integer obtenerPuntaje(Usuario usuario) {
-		Iterable<Apuesta> apuestas = apuestaDAO.findByUsuario(usuario);
+		Iterable<Apuesta> apuestas = apuestaRepository.findByUsuario(usuario);
 		Integer suma = 0;
 		for (Apuesta apuesta : apuestas) {
 			if(apuesta.getPuntosGanados() != null) {
@@ -122,6 +122,6 @@ public class ApuestaService extends ProdeService{
 	
 	/* BAJA */
 	public void eliminarApuesta(Apuesta apuesta) {
-		apuestaDAO.delete(apuesta);
+		apuestaRepository.delete(apuesta);
 	}
 }
