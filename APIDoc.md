@@ -76,7 +76,7 @@
 | :------------ | :------------ |
 | **Descripción**  |  Elimina el torneo con id {torneo} |
 | **Protocolo**  |  REST |
-| **Método HTTP **| DELETE  |
+| **Método HTTP**| DELETE  |
 | **Datos de entrada**  |{"Se elimino correctamente"}|
 | **Datos de salida**  |{}|
 | **Codigos de retorno** | 200, 404, 500 |
@@ -117,7 +117,7 @@
 | :------------ | :------------ |
 | **Descripción ** |  Edita un equipo con id {equipo} |
 | **Protocolo**  |  REST |
-| **Método HTTP **| PATCH  |
+| **Método HTTP**| PATCH  |
 | **Datos de entrada**  |{(opcional)nombre: string}|
 | **Datos de salida**  |{id: int, nombre: string}|
 | **Codigos de retorno** | 200, 404, 500 |
@@ -127,7 +127,7 @@
 | :------------ | :------------ |
 | **Descripción**  |  Elimina el torneo con id {torneo} |
 | **Protocolo**  |  REST |
-| **Método HTTP **| DELETE  |
+| **Método HTTP**| DELETE  |
 | **Datos de entrada**  |{"Se elimino correctamente"}|
 | **Datos de salida**  |{}|
 | **Codigos de retorno** | 200, 404, 500 |
@@ -166,9 +166,9 @@
 
 | Endpoint | /usuario/{usuario}  |
 | :------------ | :------------ |
-| **Descripción ** |  Edita un usuario con id {usuario} |
+| **Descripción** |  Edita un usuario con id {usuario} |
 | **Protocolo**  |  REST |
-| **Método HTTP **| PATCH  |
+| **Método HTTP**| PATCH  |
 | **Datos de entrada**  |{(opcional)username: string, (opcional)nombre: string, (opcional)apellido: string}|
 | **Datos de salida**  |{id: int, username: string, nombre: string, apellido: string}|
 | **Codigos de retorno** | 200, 404, 500 |
@@ -178,7 +178,7 @@
 | :------------ | :------------ |
 | **Descripción**  |  Elimina el usuario con id {usuario} |
 | **Protocolo**  |  REST |
-| **Método HTTP **| DELETE  |
+| **Método HTTP**| DELETE  |
 | **Datos de entrada**  |{}|
 | **Datos de salida**  |{"Se elimino correctamente"}|
 | **Codigos de retorno** | 200, 404, 500 |
@@ -219,7 +219,7 @@
 | :------------ | :------------ |
 | **Descripción**  |  Elimina el partido con id {partido} |
 | **Protocolo**  |  REST |
-| **Método HTTP **| DELETE  |
+| **Método HTTP**| DELETE  |
 | **Datos de entrada**  |{}|
 | **Datos de salida**  |{"Se elimino correctamente"}|
 | **Codigos de retorno** | 200, 404, 500 |
