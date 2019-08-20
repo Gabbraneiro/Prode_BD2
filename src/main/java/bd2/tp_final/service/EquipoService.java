@@ -4,8 +4,6 @@ import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
-
-import bd2.tp_final.dto.Apuesta;
 import bd2.tp_final.dto.Equipo;
 
 

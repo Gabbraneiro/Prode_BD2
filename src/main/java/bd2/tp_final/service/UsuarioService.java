@@ -5,7 +5,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import bd2.tp_final.dto.Torneo;
 import bd2.tp_final.dto.Usuario;
 import bd2.tp_final.repository.UsuarioRepository;
 
