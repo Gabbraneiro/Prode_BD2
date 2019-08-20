@@ -1,4 +1,4 @@
-package bd2.tp_final.dao;
+package bd2.tp_final.repository;
 
 import java.util.Optional;
 
@@ -9,7 +9,7 @@ import org.springframework.data.repository.CrudRepository;
 import bd2.tp_final.dto.Usuario;
 
 @Transactional
-public interface UsuarioDAO extends CrudRepository<Usuario,Integer>{
+public interface UsuarioRepository extends CrudRepository<Usuario,Integer>{
 
 	Optional<Usuario> findByUsername(String username);
 	
